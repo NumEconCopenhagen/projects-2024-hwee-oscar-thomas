@@ -1,9 +1,9 @@
-# \[Group name\]
+# \[Hwee, Oscar and Thomas\]
 
 **Group members:**
-- A
-- B
-- C
+- mng318
+- sdg552
+- tbm527
 
 This repository contains  
 1. Inaugural project. 
