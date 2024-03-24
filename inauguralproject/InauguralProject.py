@@ -8,7 +8,7 @@ class InauguralProjectClass:
 
         # a. preferences
         par.alpha = 1/3
-        par.beta = 2/3
+        # par.beta = 2/3
 
         # b. endowments
         par.w1A = 0.8
