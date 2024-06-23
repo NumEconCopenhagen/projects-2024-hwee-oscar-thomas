@@ -15,6 +15,8 @@ def keep_regs(df, regs):
     
     return df
 
+import matplotlib.pyplot as plt
+
 def calculate_returns(dataframe):
     """
     Calculate monthly and cumulative returns for a given DataFrame of stock prices
@@ -35,4 +37,30 @@ def calculate_returns(dataframe):
 
     # Returns monthly and cumulative stock returns
     return monthly_return, cumulative_return
+
+def plot_summary_statistics(grouped_returns, industry1, industry2):
+    """
+    Plot summary statistics for selected industries.
+
+    Parameters:
+    grouped_returns (pd.DataFrame): A pandas DataFrame containing grouped returns of stocks.
+    industry1 (str): The first industry to plot.
+    industry2 (str): The second industry to plot.
+    """
+    # Filter for the selected industries
+    selected_industries = grouped_returns[[industry1, industry2]]
+    
+    # Describe the grouped returns to get summary statistics
+    summary_stats = selected_industries.describe().iloc[[1, 2], :]  # Select mean and std rows
+    
+    # Plot the summary statistics
+    plt.figure(figsize=(10, 6))
+    summary_stats.plot(kind='bar', figsize=(10, 6))
+    plt.title(f'Summary Statistics for {industry1} and {industry2}')
+    plt.ylabel('Values')
+    plt.xlabel('Statistics')
+    plt.xticks(rotation=45)
+    plt.legend(title='Sectors', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.tight_layout()
+    plt.show()
 
