@@ -16,6 +16,7 @@ def keep_regs(df, regs):
     return df
 
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 def calculate_returns(dataframe):
     """
@@ -64,3 +65,14 @@ def plot_summary_statistics(grouped_returns, industry1, industry2):
     plt.tight_layout()
     plt.show()
 
+# Function to plot a line graph of cumulative returns for each stock
+def plot_cumulative_returns(cumulative_returns, selected_companies):
+    fig = go.Figure()
+    for company in selected_companies:
+        fig.add_trace(go.Scatter(x=cumulative_returns.index, y=cumulative_returns[company], mode='lines', name=company))
+
+    fig.update_layout(title='Cumulative Returns of Selected S&P 500 Companies',
+                      xaxis_title='Date',
+                      yaxis_title='Cumulative Returns',
+                      hovermode='x unified')
+    fig.show()
