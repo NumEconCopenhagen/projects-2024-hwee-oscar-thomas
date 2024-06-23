@@ -1,20 +1,3 @@
-def keep_regs(df, regs):
-    """ Example function. Keep only the subset regs of regions in data.
-
-    Args:
-        df (pd.DataFrame): pandas dataframe 
-
-    Returns:
-        df (pd.DataFrame): pandas dataframe
-
-    """ 
-    
-    for r in regs:
-        I = df.reg.str.contains(r)
-        df = df.loc[I == False] # keep everything else
-    
-    return df
-
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
@@ -76,3 +59,4 @@ def plot_cumulative_returns(cumulative_returns, selected_companies):
                       yaxis_title='Cumulative Returns',
                       hovermode='x unified')
     fig.show()
+
