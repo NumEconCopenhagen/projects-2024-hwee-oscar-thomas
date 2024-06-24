@@ -25,7 +25,7 @@ def solve_ss(alpha, c):
 
 class SolowModel:
     # Set parameter values
-    def __init__(self, s=0.3, n=0.02, delta=0.05, alpha=0.5, L=100, K0=50, T=100):
+    def __init__(self, s=0.3, n=0.02, delta=0.05, alpha=0.5, L=100, K0=50, T=300):
         self.s = s  # savings rate
         self.n = n  # population growth rate
         self.delta = delta  # depreciation rate
@@ -76,7 +76,7 @@ class SolowModel:
         plt.show()
 
 class SolowModelSS:
-    def __init__(self, s=0.3, n=0.02, delta=0.05, alpha=0.5, L=100, K0=50, T=100):
+    def __init__(self, s=0.3, n=0.02, delta=0.05, alpha=0.5, L=100, K0=50, T=300):
         self.s = s  # savings rate
         self.n = n  # population growth rate
         self.delta = delta  # depreciation rate
@@ -113,3 +113,5 @@ class SolowModelSS:
         plt.legend()
         plt.grid(True)
         plt.show()
+
+        
