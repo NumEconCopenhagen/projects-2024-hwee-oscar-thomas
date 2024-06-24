@@ -35,12 +35,30 @@ class SolowModel:
         self.T = T  # number of periods
         
     def steady_state_capital(self):
+        """
+        Calculates the steady-state level of capital per effective worker.
+        
+        Returns: The steady-state level of capital per effective worker.
+        """
         return ((self.s * self.L) / (self.delta + self.n))**(1 / (1 - self.alpha))
     
     def solow_model(self, K):
+        """
+        Computes the change in capital stock per period, given the current
+        capital stock, taking into account the savings rate, labor force, capital share
+        of output, depreciation rate, and population growth rate.
+
+        Parameters:
+        - K : The current capital stock.
+
+        Returns: The change in capital stock per period.
+        """
         return self.s * self.L * (K**self.alpha) - (self.delta + self.n) * K
     
     def simulate(self):
+        """
+        Simulates capital stock growth over time
+        """
         K = np.zeros(self.T+1)
         K[0] = self.K0
         for t in range(self.T):
